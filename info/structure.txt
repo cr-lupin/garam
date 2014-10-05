@@ -1,0 +1,14 @@
+<div class="mainContent"> </div>
+<ul class="mainList">
+	<li class="hikesGroup"> 
+		<div class="dateRow"> </div>
+		<ul class="hikeList">
+			<li class="hikeItem">
+				<div class="hikeOverall">  </div>
+			</li>
+			<li class="hikeItem">
+				<div class="hikeDetail">  </div>
+			</li>
+		</ul>
+	</li>
+</ul>
