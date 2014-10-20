@@ -1,13 +1,21 @@
 /** @jsx React.DOM */
 
+var HikeItem = React.createClass({
+	render: function() {
+		return (
+			<li class="hikeItem" id={this.props.hikeItem.id}> {this.props.hikeItem.name} </li>
+		);
+	}
+});
+
 var HikeList = React.createClass({
 	render: function() {
 		var hikeList = [];
 		this.props.hikes.forEach( function(hike) {
-			hikeList.push( <span> {hike.name} </span> );
+			hikeList.push( <HikeItem key={hike.id} hikeItem={hike}/> );
 		});
 		return (
-			<li> {hikeList} </li>
+			<ul> {hikeList} </ul>
 		);
 	}
 });
@@ -38,13 +46,29 @@ var HikesInOneDayList = React.createClass({
 });
 
 var MainContent = React.createClass({
-    render: function() {
-        return (
-					<div class="mainContent">
-            <HikesInOneDayList hikesPerDayListData={this.props.hikesPerDayListData} />
-        	</div>
-        );
-    }
+	getInitialState: function() {
+    return {data: []};
+  },
+  componentDidMount: function() {
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      success: function(data) {
+      	console.error(data);
+        this.setState({data: data.all});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+	render: function() {
+			return (
+				<div class="mainContent">
+					<HikesInOneDayList hikesPerDayListData={this.state.data} />
+				</div>
+			);
+	}
 });
 
 
@@ -53,9 +77,11 @@ var ALL = [
 	{ date: '2014.09.27',
 		hikes: [ { name: 'tura1', id: '1'}, { name: 'tura2', id: '2'}, { name: 'tura3', id: '3'} ]
 	},
-	{ date: '2014.09.28',
-		hikes: [ { name: 'tura4', id: '4'}, { name: 'tura5', id: '5'}, { name: 'tura6', id: '6'} ]
+	{ date: '2014.09.29',
+		hikes: [ { name: 'tura4', id: '4'}, { name: 'tura5', id: '5'}, { name: 'tura62', id: '62'} ]
 	} ];
 
-React.renderComponent(<MainContent hikesPerDayListData={ALL} />, document.body);
-//React.renderComponent(<span>almafa2</span>, document.body);
+
+
+//React.renderComponent(<MainContent hikesPerDayListData={ALL} />, document.body);
+React.renderComponent(<MainContent url="test/data.json" />, document.body);
