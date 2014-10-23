@@ -3,7 +3,7 @@
 var HikeItem = React.createClass({
 	render: function() {
 		return (
-			<li class="hikeItem" id={this.props.hikeItem.id}> {this.props.hikeItem.name} </li>
+			<li className="hikeItem" id={this.props.hikeItem.id}> {this.props.hikeItem.name} </li>
 		);
 	}
 });
@@ -15,7 +15,7 @@ var HikeList = React.createClass({
 			hikeList.push( <HikeItem key={hike.id} hikeItem={hike}/> );
 		});
 		return (
-			<ul> {hikeList} </ul>
+			<ul className="hikeList"> {hikeList} </ul>
 		);
 	}
 });
@@ -23,8 +23,8 @@ var HikeList = React.createClass({
 var HikesInOneDay = React.createClass({
 	render: function() {
 		return (
-			<li class="hikesInOneDayList">
-				<div class="dateRow"> { this.props.hikesInOneDay.date } </div>
+			<li className="hikesInOneDayList">
+				<div className="dateRow"> { this.props.hikesInOneDay.date } </div>
 				<HikeList hikes={this.props.hikesInOneDay.hikes} />
 			</li> 
 		);
@@ -38,7 +38,7 @@ var HikesInOneDayList = React.createClass({
 				hikesInOneDayList.push(<HikesInOneDay hikesInOneDay={hikesInOneDay} />);
 		});
 		return (
-			<ul class="hikesInOneDayList">
+			<ul className="hikesInOneDayList">
 				{hikesInOneDayList}    
 			</ul>
 		);
@@ -64,7 +64,7 @@ var MainContent = React.createClass({
   },
 	render: function() {
 			return (
-				<div class="mainContent">
+				<div className="mainContent">
 					<HikesInOneDayList hikesPerDayListData={this.state.data} />
 				</div>
 			);
