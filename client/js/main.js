@@ -1,9 +1,17 @@
 /** @jsx React.DOM */
 
+var HikeItemOverall = React.createClass({
+	render: function() {
+		return (
+			<div className="hikeItemOverall" id={this.props.hikeItemOverall.id}> {this.props.hikeItemOverall.name} </div>
+		);
+	}
+});
+
 var HikeItem = React.createClass({
 	render: function() {
 		return (
-			<li className="hikeItem" id={this.props.hikeItem.id}> {this.props.hikeItem.name} </li>
+			<li className="hikeItem"> <HikeItemOverall hikeItemOverall={this.props.hikeItem} /> </li>
 		);
 	}
 });
