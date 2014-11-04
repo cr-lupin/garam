@@ -1,0 +1,14 @@
+{
+	"all" : 
+	{
+		"id": "3",
+		"name": "turaaa",
+		"date": "2014.09.27",
+		"start": "iskola",
+		"end": "masik iskola",
+		"price": "1 000 000 Ft",
+		"distance": "3 km",
+		"elevation": "4 km",
+		"caffee": "yes"
+	}
+}

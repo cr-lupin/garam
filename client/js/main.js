@@ -1,5 +1,24 @@
 /** @jsx React.DOM */
 
+
+var HikeItemDetails = React.createClass({
+	render: function() {
+		return (
+			<div className="hikeItemDetail" id={this.props.hikeItemDetails.id}> 
+				<span className="hikeItemDetailName"> {this.props.hikeItemDetails.name} </span> 
+				<span className="hikeItemDetailDate"> {this.props.hikeItemDetails.date} </span> 
+				<span className="hikeItemDetailStart"> {this.props.hikeItemDetails.start} </span> 
+				<span className="hikeItemDetailEnd"> {this.props.hikeItemDetails.end} </span> 
+				<span className="hikeItemDetailDistance"> {this.props.hikeItemDetails.distance} </span> 
+				<span className="hikeItemDetailPrice"> {this.props.hikeItemDetails.price} </span> 
+				<span className="hikeItemDetailElevation"> {this.props.hikeItemDetails.elevation} </span> 
+				<span className="hikeItemDetailCaffee"> {this.props.hikeItemDetails.caffee == "yes" ? "van kávé :)" : "nincs kv" } </span> 
+			</div>
+			
+		)
+	}
+});
+
 var HikeItemOverall = React.createClass({
 	render: function() {
 		return (
@@ -9,9 +28,28 @@ var HikeItemOverall = React.createClass({
 });
 
 var HikeItem = React.createClass({
+	getInitialState: function() {
+		return {detail: false};
+	},
+	handleClick: function(event){
+		$.ajax({
+			url: 'test/hikedata.json',
+			dataType: 'json',
+			success: function(data) {      
+
+				this.setState({hikeData: data.all, detail: !this.state.detail});
+			}.bind(this),
+			error: function(xhr, status, err) {
+				console.error(this.props.url, status, err.toString());
+			}.bind(this)
+		});
+	},
 	render: function() {
+		var result = this.state.detail ?
+  		<HikeItemDetails hikeItemDetails={this.state.hikeData}/>:
+			<HikeItemOverall hikeItemOverall={this.props.hikeItem} />
 		return (
-			<li className="hikeItem"> <HikeItemOverall hikeItemOverall={this.props.hikeItem} /> </li>
+			<li className="hikeItem" onClick={this.handleClick}> {result} </li>
 		);
 	}
 });
