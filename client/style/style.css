@@ -1,38 +1,122 @@
 .mainContent  { 
-	 margin-left: auto;
- 	 margin-right: auto;
-	display:block;
-	 width=90%;
-	position: relative;
-	text-align: center;
-	font-family: "Monospace";
+  margin-left: auto;
+  margin-right: auto;
+  display:block;
+  width=90%;
+  position: relative;
+  text-align: center;
+  font-family: monospace;
+  font-size: large;
 }
 .hikesInOneDayList {
-	list-style-type: none;
-	padding: 0;
-	margin: 0;
-	border-style: solid;
-	border-width: 1px
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  border-style: solid;
+  border-width: 1px
 }
 .dateRow {
-	background-color: #2E8B57;
-	border-bottom-style: solid;
-	border-width: 1px
+/*   background-color: #2E8B57; */
+  background-color: #58A55E;
+  border-bottom-style: solid;
+  border-width: 1px
 }
 .hikeList {
-	list-style-type: none;
-	padding: 0;
-	margin: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
-.hikeItem {
-	background-color: #90EE90;
-	border-color: #98FB98;
-	border-top-style: solid;
-	border-left-style: solid;
-	border-right-style: solid;
-	border-width: 1px;
-	height: 30px;
+.hikeItem {  
+  
 }
 
-.hikeItemOverall {
+.hikeItemOverall {  
+  /*background-color: #90EE90;*/
+  background-color: #83D08A;
+  border-color: #98FB98;
+  border-top-style: solid;
+  border-left-style: solid;
+  border-right-style: solid;
+  border-width: 1px;
+  height: 25px;
+  padding-top: 5px;
+}
+
+
+.hikeItemDetails{
+  background-color: #83D08A;
+  border-color: #407545;
+  border-top-style: solid;
+  border-left-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-width: 1px;
+}
+
+.hikeItemDetailName{
+  font-weight: bold; 
+  padding: 5px;
+  background-color: #83D08A;
+}
+
+.subHikeList{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+    
+}
+
+.subHikeItem{  
+}
+
+
+.subHikeHeader{
+  background-color: #9EE0A4;
+  font-size: medium;
+  font-weight: bold;
+  padding-top: 5px;
+  height: 20px;
+}
+
+.subHikeContent{
+  background-color: #CFFFD3;
+  font-size: medium;
+  text-align: left;
+}
+
+.subHikeName{
+  float: left;
+}
+.subHikeDate{
+  float: right;
+}
+.subHikeStart{
+}
+.subHikeEnd{
+}
+.subHikeTime{
+}
+.subHikeDistance{
+}
+.subHikePrice{
+}
+.subHikeElevation{
+}
+.subHikeLimit{
+}
+.subHikeCaffee{
+}
+
+.label{
+  text-align: left;  
+}
+
+.content{
+  text-align: left;
+  position: absolute;
+  left: 50px;
+}
+
+.placeholder{
+  padding-left: 5px;
 }
